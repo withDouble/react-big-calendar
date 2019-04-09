@@ -1,9 +1,12 @@
 {
-  "name": "react-big-calendar",
+  "name": "@withdouble/react-big-calendar",
   "version": "0.21.0",
   "description": "Calendar! with events",
   "author": "Jason Quense <monastic.panic@gmail.com>",
-  "repository": "intljusticemission/react-big-calendar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/withDouble/react-big-calendar.git"
+  },
   "license": "MIT",
   "main": "lib/index.js",
   "module": "dist/react-big-calendar.esm.js",
@@ -31,9 +34,9 @@
     "less-dnd": "npm run l src/addons/dragAndDrop/styles.less ./lib/addons/dragAndDrop/styles.css",
     "assets": "cpy src/less/* lib/less && npm run assets-addons",
     "assets-addons": "cpy addons/**/*.less ../lib/ --cwd=src --parents",
-    "build:umd": "BABEL_ENV=esm yarn rollup -c",
+    "build:umd": "BABEL_ENV=esm rollup -c",
     "build:cjs": "babel src --out-dir lib",
-    "build": "yarn clean && yarn build:cjs && yarn build:umd && yarn assets && yarn less",
+    "build": "npm run clean && npm run build:cjs && npm run build:umd && npm run assets && npm run less",
     "build:examples": "npm run clean:examples && webpack --config examples/webpack.config.js",
     "examples": "npm run clean:examples && webpack-dev-server --config examples/webpack.config.js --mode development",
     "lint": "eslint src test",
