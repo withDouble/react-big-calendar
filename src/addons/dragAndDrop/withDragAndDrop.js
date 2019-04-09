@@ -140,6 +140,18 @@ export default function withDragAndDrop(Calendar) {
       if (action === 'resize') this.props.onEventResize(interactionInfo)
     }
 
+    componentDidMount() {
+      window.addEventListener('mouseup', this.handleMouseUp, false)
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('mouseup', this.handleMouseUp, false)
+    }
+
+    handleMouseUp = () => {
+      this.handleInteractionEnd(null)
+    }
+
     render() {
       const { selectable, ...props } = this.props
       const { interacting } = this.state
